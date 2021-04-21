@@ -1,22 +1,34 @@
 'use strict';
 
-require('dotenv');
 const express = require('express');
 const cors = require('cors');
+const superagent = require('superagent');
+require('dotenv').config();
 
-const weather = require('./modules/weather.js');
+const getWeather = require('./handlers/weather');
+const errorHandler = require('./handlers/error');
 const app = express();
+const PORT = process.env.PORT || 3001
 
-app.get('/weather', weatherHandler);
+// Cors Fix
+app.use(cors());
 
-function weatherHandler(request, response) {
-  const { lat, lon } = request.query;
-  weather(lat, lon)
-  .then(summaries => response.send(summaries))
-  .catch((error) => {
-    console.error(error);
-    response.status(200).send('Sorry. Something went wrong!')
-  });
-}  
+app.use(errorHandler)
 
-app.listen(process.env.PORT, () => console.log(`Server up on ${process.env.PORT}`));
+app.get('/', (request, response) => {
+  response.send('Hello World!');
+});
+
+app.get('/weather', getWeather);
+
+// function weatherHandler(request, response) {
+//   const { lat, lon } = request.query;
+//   getWeather(lat, lon)
+//   .then(summaries => response.send(summaries))
+//   .catch((error) => {
+//     console.error(error);
+//     response.status(500).send('Sorry. Something went wrong!')
+//   });
+// }  
+
+app.listen(PORT, () => console.log(`Server up on ${PORT}`));

@@ -1,0 +1,36 @@
+{
+  "name": "lab-10",
+  "version": "1.0.0",
+  "description": "City Explorer API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test:open": "./node_modules/.bin/cypress open",
+    "test:run": "./node_modules/.bin/cypress run --headless --browser=chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuckT/city-explorer-lab-10.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "MuckT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MuckT/city-explorer-lab-10/issues"
+  },
+  "homepage": "https://github.com/MuckT/city-explorer-lab-10#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cypress": "^7.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "superagent": "^6.1.0"
+  },
+  "devDependencies": {
+    "cypress": "7.1.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "random-location": "^1.1.3"
+  }
+}
