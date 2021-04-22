@@ -32,6 +32,8 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          envkey_MOVIE_API_KEY: ${{ secrets.MOVIE_API_KEY }}
+          envkey_YELP_API_KEY: ${{ secrets.YELP_API_KEY }}
 
       # Runs a single command using the runners shell
       - name: Cypress run
