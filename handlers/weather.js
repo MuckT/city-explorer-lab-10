@@ -30,7 +30,6 @@ const getWeather = async(req, res, next) => {
       cache[key].timestamp = Date.now();
       let response = await superagent.get(url).query(queryParams);
       let parsed = await parseWeather(response);
-      console.log(parsed);
       cache[key].data = parsed;
     }
     res.json(cache[key].data);
